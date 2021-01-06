@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="abstractfactory">
+  <ClassDiagramComponents>
+    <Class name="AbstractFactory" package="abstractfactory" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionBDFabrica" package="abstractfactory" visibility="public" xPosition="1908.0" yPosition="697.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getBD" returnType="IConexionBD" visibility="public">
+          <Argument type="String" name="motor"/>
+        </Method>
+        <Method name="getREST" returnType="IConexionREST" visibility="public">
+          <Argument type="String" name="area"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionMySQL" package="abstractfactory" visibility="public" xPosition="419.0" yPosition="448.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionOracle" package="abstractfactory" visibility="public" xPosition="600.0" yPosition="566.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionPostgreSQL" package="abstractfactory" visibility="public" xPosition="741.0" yPosition="110.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionRESTCompras" package="abstractfactory" visibility="public" xPosition="1200.0" yPosition="256.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="leerURL" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionRESTFabrica" package="abstractfactory" visibility="public" xPosition="1597.0" yPosition="697.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getREST" returnType="IConexionREST" visibility="public">
+          <Argument type="String" name="area"/>
+        </Method>
+        <Method name="getBD" returnType="IConexionBD" visibility="public">
+          <Argument type="String" name="motor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionRESTNoArea" package="abstractfactory" visibility="public" xPosition="1414.0" yPosition="271.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="leerURL" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionRESTVentas" package="abstractfactory" visibility="public" xPosition="995.0" yPosition="243.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="leerURL" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionSQLServer" package="abstractfactory" visibility="public" xPosition="247.0" yPosition="373.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionVacia" package="abstractfactory" visibility="public" xPosition="600.0" yPosition="411.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaProductor" package="abstractfactory" visibility="public" xPosition="876.0" yPosition="651.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getFactory" returnType="IFabricaAbstracta" visibility="public" isStatic="true">
+          <Argument type="String" name="tipoFabrica"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IConexionBD" package="abstractfactory" visibility="public" xPosition="372.0" yPosition="195.0">
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="package"/>
+        <Method name="desconectar" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="IConexionREST" package="abstractfactory" visibility="public" xPosition="1272.0" yPosition="85.0">
+      <Methods>
+        <Method name="leerURL" returnType="void" visibility="package">
+          <Argument type="String" name="url"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IFabricaAbstracta" package="abstractfactory" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Methods>
+        <Method name="getBD" returnType="IConexionBD" visibility="package">
+          <Argument type="String" name="motor"/>
+        </Method>
+        <Method name="getREST" returnType="IConexionREST" visibility="package">
+          <Argument type="String" name="area"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionRESTNoArea" target="abstractfactory.IConexionREST"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionBDFabrica" target="abstractfactory.IFabricaAbstracta"/>
+    <UseRelation source="abstractfactory.IFabricaAbstracta" target="abstractfactory.IConexionBD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="abstractfactory.ConexionBDFabrica" target="abstractfactory.IConexionREST" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="abstractfactory.IFabricaAbstracta" target="abstractfactory.IConexionREST" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionMySQL" target="abstractfactory.IConexionBD"/>
+    <UseRelation source="abstractfactory.ConexionRESTFabrica" target="abstractfactory.IConexionREST" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionSQLServer" target="abstractfactory.IConexionBD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionOracle" target="abstractfactory.IConexionBD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionRESTVentas" target="abstractfactory.IConexionREST"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionVacia" target="abstractfactory.IConexionBD"/>
+    <UseRelation source="abstractfactory.FabricaProductor" target="abstractfactory.IFabricaAbstracta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionPostgreSQL" target="abstractfactory.IConexionBD"/>
+    <UseRelation source="abstractfactory.ConexionBDFabrica" target="abstractfactory.IConexionBD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="abstractfactory.ConexionRESTFabrica" target="abstractfactory.IConexionBD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionRESTFabrica" target="abstractfactory.IFabricaAbstracta"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="abstractfactory.ConexionRESTCompras" target="abstractfactory.IConexionREST"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="factory">
+  <ClassDiagramComponents>
+    <Class name="ConexionFabrica" package="factory" visibility="public" xPosition="149.0" yPosition="106.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getConexion" returnType="IConexion" visibility="public">
+          <Argument type="String" name="motor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionMySQL" package="factory" visibility="public" xPosition="76.0" yPosition="342.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionPostgreSQL" package="factory" visibility="public" xPosition="384.0" yPosition="352.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionSQLite" package="factory" visibility="public" xPosition="694.0" yPosition="352.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionSQLServer" package="factory" visibility="public" xPosition="949.0" yPosition="371.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionVacia" package="factory" visibility="public" xPosition="1184.0" yPosition="371.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Factory" package="factory" visibility="public" xPosition="171.0" yPosition="665.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IConexion" package="factory" visibility="public" xPosition="830.0" yPosition="27.0">
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="package"/>
+        <Method name="desconectar" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory.ConexionMySQL" target="factory.IConexion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory.ConexionSQLServer" target="factory.IConexion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory.ConexionPostgreSQL" target="factory.IConexion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory.ConexionSQLite" target="factory.IConexion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory.ConexionVacia" target="factory.IConexion"/>
+    <UseRelation source="factory.ConexionFabrica" target="factory.IConexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
