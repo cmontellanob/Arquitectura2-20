@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="bridge">
+  <ClassDiagramComponents>
+    <Class name="Bridge" package="bridge" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Carne" package="bridge" visibility="public" xPosition="744.0" yPosition="215.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="procesar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ElaborarAlimento" package="bridge" visibility="public" isAbstract="true" xPosition="260.0" yPosition="20.0">
+      <Fields>
+        <Field name="implementador" type="IElaborar" visibility="package"/>
+        <Field name="nombre" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getImplementador" returnType="IElaborar" visibility="public"/>
+        <Method name="setImplementador" returnType="void" visibility="public">
+          <Argument type="IElaborar" name="implementador"/>
+        </Method>
+        <Method name="obtener" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="ElaborarLasagna" package="bridge" visibility="public" xPosition="409.0" yPosition="248.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="IElaborar" name="implementador"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="obtener" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Picante" package="bridge" visibility="public" xPosition="1120.0" yPosition="96.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="procesar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Verduras" package="bridge" visibility="public" xPosition="950.0" yPosition="228.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="procesar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="IElaborar" package="bridge" visibility="public" xPosition="859.0" yPosition="31.0">
+      <Methods>
+        <Method name="procesar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="bridge.ElaborarLasagna" target="bridge.ElaborarAlimento"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="bridge.Carne" target="bridge.IElaborar"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="bridge.Picante" target="bridge.IElaborar"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="bridge.Verduras" target="bridge.IElaborar"/>
+    <HasRelation name="implementador" source="bridge.ElaborarAlimento" target="bridge.IElaborar" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="bridge.ElaborarAlimento" target="bridge.IElaborar" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

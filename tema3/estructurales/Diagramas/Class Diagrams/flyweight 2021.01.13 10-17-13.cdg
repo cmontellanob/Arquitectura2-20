@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="flyweight">
+  <ClassDiagramComponents>
+    <Class name="AngryBird" package="flyweight" visibility="public" xPosition="96.0" yPosition="190.0">
+      <Fields>
+        <Field name="color" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="color"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BirdFactory" package="flyweight" visibility="public" xPosition="347.0" yPosition="209.0">
+      <Fields>
+        <Field name="angrybirdMap" type="HashMap" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getAngryBird" returnType="IBird" visibility="public" isStatic="true">
+          <Argument type="String" name="color"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Flyweight" package="flyweight" visibility="public" xPosition="712.0" yPosition="243.0">
+      <Fields>
+        <Field name="colors" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getRandomColor" returnType="String" visibility="private" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Interface name="IBird" package="flyweight" visibility="public" xPosition="155.0" yPosition="53.0">
+      <Methods>
+        <Method name="draw" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="flyweight.BirdFactory" target="flyweight.IBird" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="flyweight.AngryBird" target="flyweight.IBird"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
