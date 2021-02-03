@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Observer">
+  <ClassDiagramComponents>
+    <Class name="BolivianosObservador" package="observer" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="valorCambio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SubjectCasa" name="sujeto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Observador" package="observer" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="sujeto" type="SubjectCasa" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Observer" package="observer" visibility="public" xPosition="30.0" yPosition="190.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PesoARGObservador" package="observer" visibility="public" xPosition="265.0" yPosition="257.0">
+      <Fields>
+        <Field name="valorCambio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SubjectCasa" name="sujeto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PesoMXObservador" package="observer" visibility="public" xPosition="698.0" yPosition="1.0">
+      <Fields>
+        <Field name="valorCambio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SubjectCasa" name="sujeto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Subject" package="observer" visibility="public" isAbstract="true" xPosition="847.0" yPosition="172.0">
+      <Fields>
+        <Field name="observadores" type="List&lt;Observador&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregar" returnType="void" visibility="public">
+          <Argument type="Observador" name="observador"/>
+        </Method>
+        <Method name="eliminar" returnType="void" visibility="public">
+          <Argument type="Observador" name="observador"/>
+        </Method>
+        <Method name="notificarTodosObservadores" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SubjectCasa" package="observer" visibility="public" xPosition="586.0" yPosition="224.0">
+      <Fields>
+        <Field name="monto" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getMonto" returnType="int" visibility="public"/>
+        <Method name="setMonto" returnType="void" visibility="public">
+          <Argument type="int" name="monto"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="observer.BolivianosObservador" target="observer.Observador"/>
+    <HasRelation name="sujeto" source="observer.Observador" target="observer.SubjectCasa" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="observer.PesoMXObservador" target="observer.Observador"/>
+    <HasRelation name="observadores" source="observer.Subject" target="observer.Observador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Observador&gt;"/>
+    <IsRelation name="is" source="observer.SubjectCasa" target="observer.Subject"/>
+    <IsRelation name="is" source="observer.PesoARGObservador" target="observer.Observador"/>
+    <UseRelation source="observer.Subject" target="observer.Observador" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

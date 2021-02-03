@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="command">
+  <ClassDiagramComponents>
+    <Class name="Command" package="command" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cuenta" package="command" visibility="public" xPosition="88.0" yPosition="160.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="saldo" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="double" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="retirar" returnType="void" visibility="public">
+          <Argument type="double" name="monto"/>
+        </Method>
+        <Method name="depositar" returnType="void" visibility="public">
+          <Argument type="double" name="monto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Depositar" package="command" visibility="public" xPosition="568.0" yPosition="33.0">
+      <Fields>
+        <Field name="cuenta" type="Cuenta" visibility="private"/>
+        <Field name="monto" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Invoker" package="command" visibility="public" xPosition="503.0" yPosition="241.0">
+      <Fields>
+        <Field name="operaciones" type="List&lt;IOperacion&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="recibirOperacion" returnType="void" visibility="public">
+          <Argument type="IOperacion" name="operacion"/>
+        </Method>
+        <Method name="realizarOperaciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Retirar" package="command" visibility="public" xPosition="1036.0" yPosition="241.0">
+      <Fields>
+        <Field name="cuenta" type="Cuenta" visibility="private"/>
+        <Field name="monto" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+          <Argument type="double" name="monto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="IOperacion" package="command" visibility="public" xPosition="918.0" yPosition="101.0">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="cuenta" source="command.Retirar" target="command.Cuenta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="command.Retirar" target="command.IOperacion"/>
+    <UseRelation source="command.Invoker" target="command.IOperacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="command.Depositar" target="command.IOperacion"/>
+    <HasRelation name="cuenta" source="command.Depositar" target="command.Cuenta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="operaciones" source="command.Invoker" target="command.IOperacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;IOperacion&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

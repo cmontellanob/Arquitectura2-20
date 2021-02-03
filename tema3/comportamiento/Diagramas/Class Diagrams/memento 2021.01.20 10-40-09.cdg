@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="memento">
+  <ClassDiagramComponents>
+    <Class name="Caretaker" package="memento" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="mementos" type="ArrayList&lt;Memento&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addMemento" returnType="void" visibility="public">
+          <Argument type="Memento" name="m"/>
+        </Method>
+        <Method name="getMemento" returnType="Memento" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Juego" package="memento" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="checkpoint" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCheckpoint" returnType="int" visibility="public"/>
+        <Method name="setCheckpoint" returnType="void" visibility="public">
+          <Argument type="int" name="checkpoint"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Memento" package="memento" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="estado" type="Juego" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Juego" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEstado" returnType="Juego" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MementoEjemplo" package="memento" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Originator" package="memento" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="estado" type="Juego" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="Juego" name="estado"/>
+        </Method>
+        <Method name="getEstado" returnType="Juego" visibility="public"/>
+        <Method name="guardar" returnType="Memento" visibility="public"/>
+        <Method name="restaurar" returnType="void" visibility="public">
+          <Argument type="Memento" name="m"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mementos" source="memento.Caretaker" target="memento.Memento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Memento&gt;"/>
+    <UseRelation source="memento.Memento" target="memento.Juego" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="memento.Originator" target="memento.Memento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="memento.Caretaker" target="memento.Memento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estado" source="memento.Memento" target="memento.Juego" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="memento.Originator" target="memento.Juego" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estado" source="memento.Originator" target="memento.Juego" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
